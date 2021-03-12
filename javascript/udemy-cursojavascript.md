@@ -15,12 +15,19 @@ Además, me apoyaré en la extensión **Live Reload** que ofrece el VSCode para 
 ## JAVASCRIPT
 
 * Cómo añadir JavaScript al html  
-  Si queremos incorporar nuestro código JS al archivo html podremos hacerlo de tres formas:  
-  1- Creando directamente un script con el propio código
 
+Si queremos incorporar nuestro código JS al archivo html podremos hacerlo de tres formas:  
+1- Creando directamente un script con el propio código
 ```html
 <script type="text/javascript">
   alert('Hola Mundo!');
 </script>
-```
+```  
+
+2- Haciendo referencia a un script local
+```html
+<script type="text/javascript" src="./codigo.js"></script>
+```  
+
+3- Haciendo referencia a un script online
 
