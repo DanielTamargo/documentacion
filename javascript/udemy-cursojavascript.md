@@ -1,6 +1,6 @@
 ## Cómo probar el código HTML + JS (+ CSS, etc)
 
-Tendremos diferentes formas de probar el código:
+Tendremos diferentes formas de probar el código:  
 1- Arrastrar el archivo HTML al explorador para que este lo ejecute (o escribir la ruta completa en el buscador del navegador).
 
 2- Lanzar un servidor local y hacer pruebas en este, utilizando por ejemplo **XAMPP**
