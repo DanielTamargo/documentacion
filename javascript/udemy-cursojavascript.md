@@ -1,7 +1,12 @@
 ## Cómo probar el código HTML + JS (+ CSS, etc)
 
 Tendremos diferentes formas de probar el código:  
+
+<br>
+
 1- Arrastrar el archivo HTML al explorador para que este lo ejecute (o escribir la ruta completa en el buscador del navegador).
+
+<br>
 
 2- Lanzar un servidor local y hacer pruebas en este, utilizando por ejemplo **XAMPP**
 > XAMPP es una distribución de Apache completamente gratuita y fácil de instalar que contiene MariaDB, PHP y Perl. El paquete de instalación de XAMPP ha sido diseñado para ser increíblemente fácil de instalar y usar.
@@ -21,6 +26,9 @@ Además, existe la extensión **Live Reload** que ofrece el propio VSCode la cua
 ## Ejecutar código JavaScript desde un documento HTML  
 
 Si queremos incorporar nuestro código JS al archivo html podremos hacerlo de diferentes formas:  
+
+<br>
+
 1- Creando directamente un script con el propio código
 ```html
 <script type="text/javascript">
@@ -194,9 +202,9 @@ __Nota:__ podríamos utilizar objeto.hasOwnProperty(propiedad) para comprobar si
 2- Recorrer las posiciones de un array
 ```javascript
 var lista_personas = [ "Daniel", "María", "Irune", "Aitor" ];
-for (persona in lista_personas) {
-    console.log(persona); // output: Posición que está recorriendo
-    console.log(lista_personas[persona]); // output: Valor de dicha posición en el array
+for (posicion in lista_personas) {
+    console.log(posicion); // output: Posición que está recorriendo
+    console.log(lista_personas[posicion]); // output: Valor de dicha posición en el array
 }
 ```  
 
@@ -207,7 +215,7 @@ Ahora, con el For...of vamos a recorrer directamente los valores.
 ```javascript
 var lista_personas = [ "Daniel", "María", "Irune", "Aitor" ];
 for (persona of lista_personas) {
-    console.log(persona); // output: Valor
+    console.log(persona); // output: Valor -> ejemplo: Daniel
 }
 ```  
 
@@ -254,7 +262,7 @@ try {
 | <        | Menor que                 | 2 < 2 es false     |
 | <=       | Menor o igual que         | 2 <= 2 es true     |
 
-Nota: == y != cotejan los valores independientemente del tipo de variable. En cambio === y !== cotejan que tanto el valor como el tipo de variable sean iguales (es decir, estrictamente igual).
+Nota: == y != cotejan los valores independientemente del tipo de variable. En cambio === y !== cotejan que tanto el valor como el tipo de variable sean iguales (es decir, estrictamente iguales).
 
 ----
 ## Operadores de asignación
@@ -309,9 +317,56 @@ console.log(prueba4(2, 2)); // 4
 console.log(prueba4(2, 2, 8)); // 12
 ``` 
 
+**Función con parámetro REST**
+```javascript
+function prueba5(var1, var2, ...var3) {
+    console.log(var1) // Mostrará el valor de la variable 1
+    console.log(var2) // Mostrará el valor de la variable 2
+    
+    // Mostrará un array con todas las demás variables que haya añadido
+    //  si no hay añadido ninguna, mostrará un array vacío: []
+    console.log(var3) 
+}
+
+prueba5(2, 4);
+``` 
+
 Notas:
 - Una función puede llamar a otra.
 - Si tenemos un trozo de código repetido a lo largo de nuestro desarrollo, deberemos refactorizarlo en una función la cual llamemos desde donde deseemos.
+- Un parámetro REST no tiene nada que ver con las API REST, son cosas distintas. Simplemente JavaScript entenderá que cuando introducimos un parámetro REST debe introducir todas las variables "extra" que reciba en un array el cual podremos manejar.
+
+----
+## Callbacks
+
+Un **callback** (llamada de vuelta) es una función que recibe como argumento otra función y la ejecuta.
+
+```javascript
+function resultado(var1, var2, funcion) {
+    return funcion(var1, var2);
+}
+
+var sumar = function (n1, n2) {
+    return n1 + n2;
+}
+
+var multiplicar = function(n1, n2) {
+    return n1 * n2;
+}
+
+var res = resultado(2, 4, sumar);
+console.log(res); // 6
+
+var res = resultado(2, 4, multiplicar);
+console.log(res); // 8
+``` 
+
+Utilidades de utilizar Callbacks:
+- Poder controlar pasar una función como parámetro a otra función (como en el ejemplo).
+- Controlar la ejecución asíncrona con callbacks.
+- Callbacks para eliminar el conocimiento en las dependencias.
+
+[Puedes ver en profundidad todos los usos de los Callbacks con explicaciones y ejemplos aquí.](https://medium.com/@anamartinezaguilar/callbacks-en-javascript-8deeca9824b40)
 
 
 
