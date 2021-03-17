@@ -254,7 +254,7 @@ try {
 | <        | Menor que                 | 2 < 2 es false     |
 | <=       | Menor o igual que         | 2 <= 2 es true     |
 
-Nota: == y != cotejan los valores independientemente del tipo de variable. En cambio === y !== cotejan que tanto el valor como el tipo de variable sean iguales (es decir, estrictamente igual)
+Nota: == y != cotejan los valores independientemente del tipo de variable. En cambio === y !== cotejan que tanto el valor como el tipo de variable sean iguales (es decir, estrictamente igual).
 
 ----
 ## Operadores de asignación
@@ -310,8 +310,8 @@ console.log(prueba4(2, 2, 8)); // 12
 ``` 
 
 Notas:
-- Una función puede llamar a otra
-- Si tenemos un trozo de código repetido a lo largo de nuestro desarrollo, deberemos refactorizarlo en una función la cual llamemos desde donde deseemos
+- Una función puede llamar a otra.
+- Si tenemos un trozo de código repetido a lo largo de nuestro desarrollo, deberemos refactorizarlo en una función la cual llamemos desde donde deseemos.
 
 
 
