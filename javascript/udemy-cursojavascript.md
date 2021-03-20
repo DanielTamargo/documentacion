@@ -20,7 +20,7 @@ Todos los archivos que queramos ver en dicha dirección tendrán que estar dentr
 
 3- Utilizar la herramienta [Visual Studio Code](https://code.visualstudio.com) para desarrollar todos los ejemplos y ejercicios.
 
-Además, existe la extensión **Live Reload** que ofrece el propio VSCode la cual, utilizando un puerto (por defecto el 5500), abrirá el documento HTML que deseemos y cada vez que un cambio sea guardado, la página se refrescará automáticamente y se podrá ver el efecto de dicho cambio.  
+Además, existe la extensión **Live Reload** que ofrece el propio VSCode la cual, utilizando un puerto (por defecto el 5500), abrirá el documento HTML que deseemos y cada vez que un cambio sea guardado, la página se refrescará automáticamente y se podrá ver el efecto de dicho cambio.
 
 <br>
 
@@ -435,10 +435,10 @@ var aitor = nombres[1];
 var tercerNombre = nombres[2];
 var cuartoNombre = nombres[3];
 
-console.log(primer_nombre); // Dani
+console.log(primerNombre); // Dani
 console.log(aitor); // Aitor
-console.log(tercer_nombre); // Irune
-console.log(cuarto_nombre); // undefined
+console.log(tercerNombre); // Irune
+console.log(cuartoNombre); // undefined
 ```
 
 Añadir un valor a un array
@@ -518,7 +518,7 @@ console.log(dos); // Aitor
 console.log(tres); // Irune
 console.log(cuatro); // Sin nombre
 ```
-[Aprende todo sobre la desestructuración aquí](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
+[Aprende todo sobre la desestructuración aquí.](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
 
 
 
