@@ -20,7 +20,11 @@ Todos los archivos que queramos ver en dicha dirección tendrán que estar dentr
 
 3- Utilizar la herramienta [Visual Studio Code](https://code.visualstudio.com) para desarrollar todos los ejemplos y ejercicios.
 
-Además, existe la extensión **Live Reload** que ofrece el propio VSCode la cual, utilizando un puerto (por defecto el 5500), abrirá el documento HTML que deseemos y cada vez que un cambio sea guardado, la página se refrescará automáticamente y se podrá ver el efecto de dicho cambio.
+Además, existe la extensión **Live Reload** que ofrece el propio VSCode la cual, utilizando un puerto (por defecto el 5500), abrirá el documento HTML que deseemos y cada vez que un cambio sea guardado, la página se refrescará automáticamente y se podrá ver el efecto de dicho cambio.  
+
+<br>
+
+**Importante:** Todos los mensajes que queramos mostrar por consola utilizando por ejemplo console.log(), si queremos verlos en la página tendremos que hacer clic derecho -> inspeccionar (o Ctrl + Mayus + i), y acceder a la pestaña Console, ahí se mostrarán todos los mensajes.
 
 ----
 ## Ejecutar código JavaScript desde un documento HTML  
@@ -78,6 +82,16 @@ Ejemplo:
 ```
 
 ----
+## Miscelánea
+
+Ciertas cosas que pueden ser útiles o que viene bien conocer 
+- undefined = sin definir
+- null = sin valor, nulo
+- NaN = Not a Number (por ejemplo al hacer 5 * "dani")
+- prompt("Hola"); muestra una alerta con un input para guardarlo
+- document.write(variable); escribe en el documento directamente
+
+----
 ## Variables
 
 #### Tipos de variables y su scope (amplitud o rango donde podrán ser utilizadas)
@@ -92,18 +106,18 @@ var numero = 1;
 var numero = 2; // Se sobreescribe sin problemas
 
 if (condicion) {
-    console.log(letra); // output: a
-    console.log(numero); // output: 2
+    console.log(letra); // a
+    console.log(numero); // 2
     
     let resultado = numero + 3;
-    console.log(resultado); // output: 5
+    console.log(resultado); // 5
 }
 
-console.log(letra); // output: a
-console.log(numero); // output: 2
-console.log(resultado); // output: ReferenceError: resultado is not defined
+console.log(letra); // a
+console.log(numero); // 2
+console.log(resultado); // error: ReferenceError: resultado is not defined
 
-letra = 'b'; // output: TypeError: Assignment to constant variable
+letra = 'b'; // error: TypeError: Assignment to constant variable
 ```  
 Como nota, puedes crear una variable let que se llame igual que una variable var y al hacer referencia a dicho nombre priorizará la variable let, pero no es recomendable, hay que centrarse en hacer un código limpio y **claro**, es decir, fácil de entender, y repetir nombres de variables solo complica las cosas.
 
@@ -147,9 +161,9 @@ if (condicion) {
 #### Switch
 ```javascript
 switch (accion) {
-    case 'saludar': // si accion == 'saludar', ejecutamos el código
+    case 'saludar': // Si accion == 'saludar', ejecutamos el código
         alert('hola!');
-        break; // si no añadimos el break, ejecutaría el siguiente case
+        break; // Si no añadimos el break, ejecutaría el siguiente case
     case 'despedir':
         alert('adiós!');
         break;
@@ -193,8 +207,8 @@ var objeto = {
     edad: 25
 };
 for (propiedad in objeto) {
-    console.log(propiedad); // output: Nombre de la propiedad
-    console.log(objeto[propiedad]) // output: Valor de dicha propiedad del objeto
+    console.log(propiedad); // Nombre de la propiedad
+    console.log(objeto[propiedad]) // Valor de dicha propiedad del objeto
 }
 ```  
 __Nota:__ podríamos utilizar objeto.hasOwnProperty(propiedad) para comprobar si en efecto un objeto tiene dicha propiedad.
@@ -203,8 +217,8 @@ __Nota:__ podríamos utilizar objeto.hasOwnProperty(propiedad) para comprobar si
 ```javascript
 var lista_personas = [ "Daniel", "María", "Irune", "Aitor" ];
 for (posicion in lista_personas) {
-    console.log(posicion); // output: Posición que está recorriendo
-    console.log(lista_personas[posicion]); // output: Valor de dicha posición en el array
+    console.log(posicion); // Posición que está recorriendo
+    console.log(lista_personas[posicion]); // Valor de dicha posición en el array
 }
 ```  
 
@@ -335,6 +349,7 @@ Notas:
 - Una función puede llamar a otra.
 - Si tenemos un trozo de código repetido a lo largo de nuestro desarrollo, deberemos refactorizarlo en una función la cual llamemos desde donde deseemos.
 - Un parámetro REST no tiene nada que ver con las API REST, son cosas distintas. Simplemente JavaScript entenderá que cuando introducimos un parámetro REST debe introducir todas las variables "extra" que reciba en un array el cual podremos manejar.
+- Si creas funciones tipo var dentro de una función, no podrás llamarlas desde fuera de la función. Porque esa variable sólo va a existir y vivir dentro de la función, si quieres acceder al valor tendrás que devolverla con un return y recogerla cuando llames a dicha función.
 
 ----
 ## Callbacks
@@ -342,22 +357,25 @@ Notas:
 Un **callback** (llamada de vuelta) es una función que recibe como argumento otra función y la ejecuta.
 
 ```javascript
+var x = 2;
+var y = 4;
+
 function resultado(var1, var2, funcion) {
     return funcion(var1, var2);
 }
 
+// Podemos guardar una función en una variable
 var sumar = function (n1, n2) {
     return n1 + n2;
 }
-
-var multiplicar = function(n1, n2) {
-    return n1 * n2;
-}
-
-var res = resultado(2, 4, sumar);
+// Y pasarle esa función de la misma manera
+var res = resultado(x, y, sumar);
 console.log(res); // 6
 
-var res = resultado(2, 4, multiplicar);
+// También podemos pasarle la función construyéndola a la par que se la pasamos
+var res = resultado(x, y, function(n1, n2) {
+    return n1 * n2;
+});
 console.log(res); // 8
 ``` 
 
@@ -366,11 +384,141 @@ Utilidades de utilizar Callbacks:
 - Controlar la ejecución asíncrona con callbacks.
 - Callbacks para eliminar el conocimiento en las dependencias.
 
-[Puedes ver en profundidad todos los usos de los Callbacks con explicaciones y ejemplos aquí.](https://medium.com/@anamartinezaguilar/callbacks-en-javascript-8deeca9824b40)
+[Puedes ver en profundidad todos los usos de los Callbacks con explicaciones y ejemplos aquí.](https://link.medium.com/UriUqvfvJeb)
 
+----
+## Funciones flecha
 
+```javascript
+var x = 2;
+var y = 4;
 
+function resultado(var1, var2, funcion) {
+    return funcion(var1, var2);
+}
 
+// Función flecha
+var sumar = (num1, num2) => {
+    return x + y;
+}
+
+console.log(resultado(x, y, sumar)); // 6
+``` 
+
+Nota: si la función flecha recibe solo un parámetro no harán falta los paréntesis.
+
+----
+## Arrays
+
+Crear un array
+```javascript
+var nombres = ["Dani", "Aitor", "Irune"];
+console.log(nombres); // ["Dani", "Aitor", "Irune"]
+
+// Un array puede contener distintos tipos de datos
+var datos = [true, 4, "Vitoria", null];
+console.log(datos); // [true, 4, "Vitoria", null]
+```  
+
+Obtener los valores de un array
+```javascript
+var nombres = ["Dani", "Aitor", "Irune"];
+
+// La primera posición será la posición 0
+// index 0 -> Dani
+// index 1 -> Aitor
+// index 2 -> Irune
+// index 3 -> Sin definir (no hay un cuarto valor)
+
+var primerNombre = nombres[0]; 
+var aitor = nombres[1];
+var tercerNombre = nombres[2];
+var cuartoNombre = nombres[3];
+
+console.log(primer_nombre); // Dani
+console.log(aitor); // Aitor
+console.log(tercer_nombre); // Irune
+console.log(cuarto_nombre); // undefined
+```
+
+Añadir un valor a un array
+```javascript
+// Añadir un valor al final de un array
+//     Forma 1- método push() (recomendado)
+var nombres = ["Dani", "Aitor", "Irune"];
+nombres.push("María");
+console.log(nombres); // ["Dani", "Aitor", "Irune", "María"]
+
+//     Forma 2- utilizar .length
+var nombres = ["Dani", "Aitor", "Irune"];
+nombres[nombres.length] = "Juan"
+console.log(nombres); // ["Dani", "Aitor", "Irune", "Juan"];
+
+// Añadir un valor a una posición fija de un array
+var nombres = ["Dani", "Aitor", "Irune"];
+nombres[1] = "Carla";
+console.log(nombres); // ["Dani", "Carla", "Irune"]
+
+nombres[3] = "Alex";
+console.log(nombres); // ["Dani", "Carla", "Irune", "Alex"]
+
+// Si añadimos un valor a una posición dejando huecos en medio
+var nombres = ["Dani"];
+nombres[3] = "Ana";
+console.log(nombres); // ["Dani", empty x2, "Ana"]
+``` 
+
+Recorrer un array
+```javascript
+var nombres = ["Dani", "Aitor", "Irune"];
+
+// Recorrer posiciones de un array
+for (index in nombres) {
+    console.log(index); // Posición
+    console.log(nombres[index]); // Valor en dicha posición
+}
+
+// Otra forma de recorrer las posiciones de un array
+for (let i = 0; i < nombres.length; i++) {
+    console.log(i); // Posición
+    console.log(nombres[i]); // Valor en dicha posición
+}
+
+// Recorrer directamente valores de un array (for each)
+for (nombre of nombres) {
+    console.log(nombre); // Valor
+}
+```
+
+Desestructurar
+```javascript
+var nombres = ["Dani", "Aitor", "Irune"];
+
+// Otra forma de obtener los datos es desestructurar el array
+var [uno, dos, tres, cuatro] = nombres;
+console.log(uno); // Dani
+console.log(dos); // Aitor
+console.log(tres); // Irune
+console.log(cuatro); // Undefined
+
+// Podemos saltar un valor
+var [dani, , irune] = nombres;
+console.log(dani); // Dani
+console.log(irune); // Irune
+
+// Podemos guardar los valores sobrantes en otro array
+var [primerNombre, ...otrosNombres] = nombres;
+console.log(primerNombre); // Dani
+console.log(otrosNombres); // ["Aitor", "Irune"]
+
+// Al desestructurar podemos asignar valores por defecto
+var [uno, dos, tres, cuatro="Sin nombre"] = nombres;
+console.log(uno); // Dani
+console.log(dos); // Aitor
+console.log(tres); // Irune
+console.log(cuatro); // Sin nombre
+```
+[Aprende todo sobre la desestructuración aquí](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
 
 
 
