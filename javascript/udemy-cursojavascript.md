@@ -22,6 +22,7 @@ Todos los archivos que queramos ver en dicha dirección tendrán que estar dentr
 
 Además, existe la extensión **Live Reload** que ofrece el propio VSCode la cual, utilizando un puerto (por defecto el 5500), abrirá el documento HTML que deseemos y cada vez que un cambio sea guardado, la página se refrescará automáticamente y se podrá ver el efecto de dicho cambio.
 
+
 <br>
 
 **Importante:** Todos los mensajes que queramos mostrar por consola utilizando por ejemplo console.log(), si queremos verlos en la página tendremos que hacer clic derecho -> inspeccionar (o Ctrl + Mayus + i), y acceder a la pestaña Console, ahí se mostrarán todos los mensajes.
@@ -105,7 +106,7 @@ const letra = 'a';
 var numero = 1;
 var numero = 2; // Se sobreescribe sin problemas
 
-if (condicion) {
+if (true) {
     console.log(letra); // a
     console.log(numero); // 2
     
@@ -174,8 +175,8 @@ switch (accion) {
 
 #### For (fori)
 ```javascript
-for (var i = 0; i < 10, i++) {
-    console.log(`¡Hola! Te he saludado ${i} veces`);
+for (var i = 0; i < 10; i++) {
+   console.log(`¡Hola! Valor de i: ${i}`);
 }
 ```  
 
@@ -189,6 +190,8 @@ while (n < 7) {
 ```  
 
 #### Do While
+
+Funciona igual que el while, pero siempre se ejecutará al menos una vez
 ```javascript
 var n = 0;
 do {
@@ -199,7 +202,8 @@ do {
 
 #### For ... in
 
-Podemos utilizarlo de dos formas diferentes:
+Podemos utilizarlo de dos formas diferentes:  
+
 1- Recorrer las propiedades de un objeto
 ```javascript
 var objeto = {
@@ -309,7 +313,8 @@ function prueba2() {
     return 'resultado de la función!';
 }
 
-console.log(prueba2());
+var resultado = prueba2();
+console.log(resultado);
 ``` 
 
 **Función con parámetros**
@@ -347,9 +352,9 @@ prueba5(2, 4);
 
 Notas:
 - Una función puede llamar a otra.
-- Si tenemos un trozo de código repetido a lo largo de nuestro desarrollo, deberemos refactorizarlo en una función la cual llamemos desde donde deseemos.
+- Si tenemos un trozo de código repetido a lo largo de nuestro desarrollo, deberemos refactorizarlo en una función la cual llamaremos desde donde deseemos.
 - Un parámetro REST no tiene nada que ver con las API REST, son cosas distintas. Simplemente JavaScript entenderá que cuando introducimos un parámetro REST debe introducir todas las variables "extra" que reciba en un array el cual podremos manejar.
-- Si creas funciones tipo var dentro de una función, no podrás llamarlas desde fuera de la función. Porque esa variable sólo va a existir y vivir dentro de la función, si quieres acceder al valor tendrás que devolverla con un return y recogerla cuando llames a dicha función.
+- Si creas variables dentro de una función, aunque sean tipo var, no podrás llamarlas desde fuera de la función. Porque esa variable sólo va a existir y vivir dentro de la función, si quieres acceder al valor tendrás que devolverla con un return y recogerla cuando llames a dicha función.
 
 ----
 ## Callbacks
@@ -490,7 +495,7 @@ for (nombre of nombres) {
 }
 ```
 
-Desestructurar
+Desestructurar un array
 ```javascript
 var nombres = ["Dani", "Aitor", "Irune"];
 
@@ -506,7 +511,7 @@ var [dani, , irune] = nombres;
 console.log(dani); // Dani
 console.log(irune); // Irune
 
-// Podemos guardar los valores sobrantes en otro array
+// Podemos guardar los valores sobrantes en otro array (parámetro REST)
 var [primerNombre, ...otrosNombres] = nombres;
 console.log(primerNombre); // Dani
 console.log(otrosNombres); // ["Aitor", "Irune"]
