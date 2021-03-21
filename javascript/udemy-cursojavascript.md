@@ -148,7 +148,7 @@ Use strict nos obligará a utilizar "las buenas prácticas" a la hora de program
 ----
 ## Estructuras de control
 
-#### If... else if... else
+### If... else if... else
 ```javascript
 if (condicion) {
     alert('primera condición verdadera!!');
@@ -159,7 +159,7 @@ if (condicion) {
 }
 ```  
 
-#### Switch
+### Switch
 ```javascript
 switch (accion) {
     case 'saludar': // Si accion == 'saludar', ejecutamos el código
@@ -173,14 +173,14 @@ switch (accion) {
 }
 ```  
 
-#### For (fori)
+### For (fori)
 ```javascript
 for (var i = 0; i < 10; i++) {
    console.log(`¡Hola! Valor de i: ${i}`);
 }
 ```  
 
-#### While
+### While
 ```javascript
 var n = 0;
 while (n < 7) {
@@ -189,7 +189,7 @@ while (n < 7) {
 }
 ```  
 
-#### Do While
+### Do While
 
 Funciona igual que el while, pero siempre se ejecutará al menos una vez
 ```javascript
@@ -200,7 +200,7 @@ do {
 } while (n < 7);
 ```  
 
-#### For ... in
+### For ... in
 
 Podemos utilizarlo de dos formas diferentes:  
 
@@ -226,7 +226,7 @@ for (posicion in lista_personas) {
 }
 ```  
 
-#### For ... of
+### For ... of
 
 En el For...in estábamos recorriendo y obteniendo las posiciones de un array o el nombre de las propiedades de un objeto. 
 Ahora, con el For...of vamos a recorrer directamente los valores.
@@ -237,7 +237,7 @@ for (persona of lista_personas) {
 }
 ```  
 
-#### Try ... catch ... finaly
+### Try ... catch ... finaly
 
 ```javascript
 try {
