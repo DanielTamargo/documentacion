@@ -1,3 +1,8 @@
+## ¿Qué es JavaScript?
+
+> JavaScript (abreviado comúnmente JS) es un lenguaje de programación interpretado, dialecto del estándar ECMAScript. Se define como orientado a objetos, basado en prototipos, imperativo, débilmente tipado y dinámico.  
+> Se utiliza principalmente del lado del cliente, implementado como parte de un navegador web permitiendo mejoras en la interfaz de usuario y páginas web dinámicas3​ y JavaScript del lado del servidor (Server-side JavaScript o SSJS). Su uso en aplicaciones externas a la web, por ejemplo en documentos PDF, aplicaciones de escritorio (mayoritariamente widgets) es también significativo.
+
 ## Cómo probar el código HTML + JS (+ CSS, etc)
 
 Tendremos diferentes formas de probar el código:  
@@ -56,11 +61,10 @@ Si queremos incorporar nuestro código JS al archivo html podremos hacerlo de di
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 ```  
 
-Atributos que podemos añadir:
+Atributos que podemos añadir a la etiqueta script:
 - Cuando queremos hacer una petición de un recurso y tenemos que señalar si la petición es anónima o con credenciales: [**crossorigin**](https://www.w3schools.com/tags/att_script_crossorigin.asp)
 - Cárgarlo **después** de cargar la página: [**defer**](https://www.w3schools.com/tags/att_script_defer.asp)
 - Cargarlo **mientras** se carga la página: [**async**](https://www.w3schools.com/tags/att_script_async.asp)
-
 
 <br>
 
@@ -89,8 +93,8 @@ Ciertas cosas que pueden ser útiles o que viene bien conocer
 - undefined = sin definir
 - null = sin valor, nulo
 - NaN = Not a Number (por ejemplo al hacer 5 * "dani")
-- prompt("Hola"); muestra una alerta con un input para guardarlo
-- document.write(variable); escribe en el documento directamente
+- prompt("Hola"); = muestra una alerta con un input para guardarlo
+- document.write(variable); = escribe en el documento directamente
 
 ----
 ## Variables
@@ -125,7 +129,7 @@ Como nota, puedes crear una variable let que se llame igual que una variable var
 ----
 ## Use Strict
 
-Si queremos que sea obligatorio utilizar la indicación **var** para declarar una variable dando uso a las buenas prácticas de programación, tendremos que añadir **'use strict';** al principio del archivo .js (en la primera línea).
+Si queremos que sea obligatorio utilizar la indicación **var**, **let** o **const** para declarar una variable dando uso a las buenas prácticas de programación, tendremos que añadir **'use strict';** al principio del archivo .js (en la primera línea).
 ```javascript
 'use strict'; // En la primera línea del código!
 ```
@@ -137,13 +141,12 @@ function funcionEstricta() {
 }
 ```
 
-Si no utilizamos use strict, podremos crear una variable directamente dándole nombre y valor y JS sobreentenderá que estamos creando dicha variable con dicho valor.
+Si no utilizamos use strict, podremos crear una variable directamente dándole nombre y valor y JS sobreentenderá que estamos creando dicha variable tipo var con dicho valor.
 En cambio, si utilizamos use strict, JS no nos mimará tanto, por lo que tendremos que ir declarando y concretando cada variable.
 Parece que es dar un paso atrás, pero realmente ayuda a la hora de crear un código correcto.
 
-Es muy fácil colarse al escribir el nombre de una variable y escribir dos letras al revés, o acostumbrarse a crear variables sin indicar que son var, haciendo difícil entender de dónde ha salido y en qué momento hemos necesitado dicha variable.
+Es muy fácil colarse y equivocarse al escribir el nombre de una variable y teclear dos letras al revés, o acostumbrarse a crear variables sin indicar que son var, haciendo difícil entender de dónde ha salido y en qué momento hemos necesitado o declarado dicha variable.
 Use strict nos obligará a utilizar "las buenas prácticas" a la hora de programar, haciendo que nuestro código quede más claro y ordenado.
-
 
 ----
 ## Estructuras de control
@@ -415,7 +418,10 @@ Nota: si la función flecha recibe solo un parámetro no harán falta los parén
 ----
 ## Arrays
 
-Crear un array
+> Un array es un tipo de dato estructurado que permite almacenar un conjunto de datos. Se puede considerar una lista donde almacenas valores y objetos. En muchos lenguajes los arrays deben almacenar un conjunto de datos homogéneo, es decir, todos los datos deberán ser del mismo tipo, pero en JavaScript no es el caso, podremos guardar diferentes tipos de datos en un mismo array.
+
+Aprendamos cómo trabajar con los arrays.
+### Crear un array
 ```javascript
 var nombres = ["Dani", "Aitor", "Irune"];
 console.log(nombres); // ["Dani", "Aitor", "Irune"]
@@ -425,7 +431,7 @@ var datos = [true, 4, "Vitoria", null];
 console.log(datos); // [true, 4, "Vitoria", null]
 ```  
 
-Obtener los valores de un array
+### Obtener los valores de un array
 ```javascript
 var nombres = ["Dani", "Aitor", "Irune"];
 
@@ -446,7 +452,7 @@ console.log(tercerNombre); // Irune
 console.log(cuartoNombre); // undefined
 ```
 
-Añadir un valor a un array
+### Añadir un valor a un array
 ```javascript
 // Añadir un valor al final de un array
 //     Forma 1- método push() (recomendado)
@@ -473,7 +479,7 @@ nombres[3] = "Ana";
 console.log(nombres); // ["Dani", empty x2, "Ana"]
 ``` 
 
-Recorrer un array
+### Recorrer un array
 ```javascript
 var nombres = ["Dani", "Aitor", "Irune"];
 
@@ -495,7 +501,7 @@ for (nombre of nombres) {
 }
 ```
 
-Desestructurar un array
+### Desestructurar un array
 ```javascript
 var nombres = ["Dani", "Aitor", "Irune"];
 
@@ -528,7 +534,8 @@ console.log(cuatro); // Sin nombre
 ----
 ## DOM (Document Object Model)
 
-HTML es un lenguaje de etiquetado padre-hijo, es decir, existe una etiqueta general y dentro de esta etiqueta general se irán generando hijos con los distintos elementos.
+> HTML es un lenguaje de etiquetado padre-hijo, es decir, existe una etiqueta general (padre) y dentro de esta etiqueta general se irán generando otras etiquetas (hijos) con los distintos elementos. Un hijo podrá tener otros hijos, etc.
+
 Por ejemplo:
 
 ```html
@@ -604,9 +611,9 @@ Lista de métodos de uso habitual:
 ### DOM: Añadir, editar y eliminar atributos
 | Método                        | Descripción                                                                                                                                              |
 |-------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| setAttribute("type", "valor") | Crea el atributo y le asigna el valor. Si el atributo ya existía, reemplaza su valor.                                                                    |
-| getAttribute("type")          | Devuelve el valor del atributo. Si el atributo no existe, devolverá null.                                                                                |
-| removeAttribute("type")       | Elimina el atributo.                                                                                                                                     |
+| setAttribute('type', 'value') | Crea el atributo y le asigna el valor. Si el atributo ya existía, reemplaza su valor.                                                                    |
+| getAttribute('type')          | Devuelve el valor del atributo. Si el atributo no existe, devolverá null.                                                                                |
+| removeAttribute('type')       | Elimina el atributo.                                                                                                                                     |
 
 ### DOM: Atributos útiles que puede tener cualquier nodo
 | Atributo        | Descripción                                                                                                                                                                                                                             |
@@ -624,7 +631,7 @@ Lista de métodos de uso habitual:
 |-------------|-------------------------------------------------------------------------------------------------------------------------------------------|
 | value       | Devuelve el valor (también se puede usar para asignarle un valor).                                                                        |
 | type        | Devuelve el tipo (también se puede usar para asignarle el tipo). Ejemplos: text, file, datetime-local...                                  |
-| accept      | Si el atributo es tipo file, se puede configurar qué archivos aceptará únicamente. Ejemplo: accept="image/png"                            |
+| accept      | Si el atributo es tipo file, se puede configurar qué archivos aceptará únicamente. Ejemplo: accept='image/png'                            |
 | form        | Se le puede asignar un formulario a un botón para que al presionarlo funcione como submit del mismo aún sin estar dentro del propio form. |
 | minLength   | Define la cantidad mínima de caracteres necesarios.                                                                                       |
 | maxLength   | Define la cantidad máxima de caracteres admitidos.                                                                                        |
@@ -635,34 +642,87 @@ Lista de métodos de uso habitual:
 Puedes configurarlo línea a línea a través de código JavaScript. Algunos ejemplos:
 | Método                                      | Descripción                                                                           |
 |---------------------------------------------|---------------------------------------------------------------------------------------|
-| elemento.style.color = "#32b"               | Le asigna el color #32b al elemento.                                                  |
-| elemento.style.padding = "30px"             | Asigna un padding de 30px alrededor del elemento.                                     |
-| elemento.style.fontSize = "32px"            | Asigna un tamaño de fuente de 32px.                                                   |
-| elemento.style.fontWeight = "bolder"        | Marca el texto del elemento como negrita.                                             |
-| elemento.style.textDecoration = "underline" | Subraya el texto del elemento.                                                        |
+| style.color = '#32b'               | Le asigna el color #32b al elemento.                                                  |
+| style.padding = '30px'             | Asigna un padding de 30px alrededor del elemento.                                     |
+| style.fontSize = '32px'            | Asigna un tamaño de fuente de 32px.                                                   |
+| style.fontWeight = 'bolder'        | Marca el texto del elemento como negrita.                                             |
+| style.textDecoration = 'underline' | Subraya el texto del elemento.                                                        |
 
 [Tabla con todos los métodos del style.](https://www.w3schools.com/jsref/dom_obj_style.asp)
 
-### DOM: Añadir, eliminar, obtener, comprobar y reemplazar clases
+### DOM: Métodos de clases de un elemento
 | Método                       | Descripción                                                               |
 |------------------------------|---------------------------------------------------------------------------|
-| add("nombre")                | Añade una clase.                                                          |
-| remove("nombre")             | Elimina una clase.                                                        |
+| classList.add('nombre')                | Añade una clase.                                                          |
+| classList.remove('nombre')             | Elimina una clase.                                                        |
 | classList.item(0)            | Obtiene la primera clase que tenga.                                       |
-| classList.contains("nombre") | Devuelve true o false en base a si existe o no la clase.                  |
-| toggle("nombre")             | Si la clase no existe la añade, y si existe la elimina.                   |
-| toggle("nombre", true)       | Si la clase no existe la añade.                                           |
-| toggle("nombre", false)      | Si la clase existe la elimina.                                            |
-| replace("uno", "dos")        | Reemplaza una clase por otra, devuelve true si lo ha realizado con éxito. |
+| classList.contains('nombre') | Devuelve true o false en base a si existe o no la clase.                  |
+| classList.toggle('nombre')             | Si la clase no existe la añade, y si existe la elimina.                   |
+| classList.toggle('nombre', true)       | Si la clase no existe la añade.                                           |
+| classList.toggle('nombre', false)      | Si la clase existe la elimina.                                            |
+| classList.replace('uno', 'dos')        | Reemplaza una clase por otra, devuelve true si lo ha realizado con éxito. |
 
 [Documentación con ejemplos.](https://www.w3schools.com/jsref/prop_element_classlist.asp)
 
 ### DOM: Creación de elementos
+| Método                       | Descripción                                                          | Ejemplo                                      |
+|------------------------------|----------------------------------------------------------------------|----------------------------------------------|
+| createElement('BUTTON')      | Crear un elemento. En este caso un botón.                            | var btn = document.createElement('BUTTON')   |
+| appendChild(element)         | Añadir un elemento al elemento seleccionado.                         | document.body.appendChild(btn)               |
+| createTextNode('texto')      | Crear un nodo de texto que después podremos añadir a algún elemento. | var texto = document.createTextNode('Hola!') |
+
+Otros dos métodos importantes pero que requieren una explicación y ejemplos más extensos:
+- [createDocumentFragment()](https://developer.mozilla.org/es/docs/Web/API/Document/createDocumentFragment)
+- [createElementNS() con su explicación](https://developer.mozilla.org/es/docs/Web/API/Document/createElementNS)
+
+### DOM: Métodos de Childs (hijos)
+| Método                       | Descripción                                                                                                                                                                                                                                                                                                                  |
+|------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| firstChild                   | Devuelve como objeto el primer hijo del nodo especificado.                                                                                                                                                                                                                                                                   |
+| lastChild                    | Devuelve como objeto último hijo del nodo especificado.                                                                                                                                                                                                                                                                      |
+| firstElementChild            | Devuelve como objeto el primer hijo del nodo especificado, pero a diferencia de firstChild, omitirá los siguientes nodos: #text y comentarios.  Por ejemplo, el simple hecho de haber un salto de línea en el html para que el contenido sea más legible supondrá que exista un nodo #text, y con este método lo evitaremos. |
+| lastElementChild             | Devuelve como objeto el último hijo del nodo especificado. Se diferencia de lastChild de la misma manera que firstElementChild se diferencia de firstChild.                                                                                                                                                                  |
+| childNodes                   | Devolverá un array que contendrá todos los hijos del nodo especificado.                                                                                                                                                                                                                                                      |
+| children                     | Devolverá un array que contendrá todos los hijos del nodo especificado omitiendo los nodos #text y comentarios.                                                                                                                                                                                                              |
+| appendChild(element)         | Añadirá el elemento hijo al elemento padre seleccionado. Si tiene varios hijos, lo añadirá al final.                                                                                                                                                                                                                         |
+| replaceChild(nuevo, antiguo) | Reemplazará el elemento hijo antiguo por el hijo nuevo en el elemento padre seleccionado.                                                                                                                                                                                                                                    |
+| removeChild(element)         | Eliminará el elemento hijo del elemento padre seleccionado.                                                                                                                                                                                                                                                                  |
+| hasChildNodes()              | Devolverá true si el elemento padre seleccionado tiene elementos hijos. No omitirá #text ni comentarios                                                                                                                                                                                                                      |
+
+### DOM: Métodos de Parents (padres)
+| Método        | Descripción                                           |
+|---------------|-------------------------------------------------------|
+| parentElement | Devuelve como objeto el padre del hijo especificado.  |
+| parentNode    | Devuelve como objeto del padre del hijo especificado. |
+
+La única diferencia entre estos dos métodos es que, si intentamos mirar el padre del elemento raíz, parentNode nos devolverá la instancia document, mientras que parentElement nos devolverá un valor nulo.
+
+```javascript
+document.body.parentNode; // El elemento <html>
+document.body.parentElement; // El elemento <html>
+
+document.documentElement.parentNode; // El nodo document
+document.documentElement.parentElement; // null
+
+console.log(document.documentElement.parentNode === document);  // true
+console.log(document.documentElement.parentElement === document);  // false
+```
+
+### DOM: Métodos de Siblings (hermanos)
+| Método                 | Descripción                                                                                                                                                                 |
+|------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| nextSibling            | Devuelve como objeto el siguiente hermano del elemento especificado. Devuelve null si no existe.                                                                            |
+| previousSibling        | Devuelve como objeto el anterior hermano del nodo especificado. Devuelve null si no existe.                                                                                 |
+| nextElementSibling     | Devuelve como objeto el siguiente hermano del elemento especificado. A diferencia de nextSibling, omitirá los nodos #text y los comentarios. Devuelve null si no existe.    |
+| previousElementSibling | Devuelve como objeto el anterior hermano del elemento especificado. A diferencia de previousSibling, omitirá los nodos #text y los comentarios. Devuelve null si no existe. |
+  
+
+Nota: Se condiera que dos nodos o elementos son hermanos cuando tienen el mismo padre, es decir, están al mismo nivel.
 
 
+### DOM: Otros métodos
 
-
-
+- [closest()](https://developer.mozilla.org/es/docs/Web/API/Element/closest)
 
 
 
