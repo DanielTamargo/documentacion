@@ -148,6 +148,23 @@ Parece que es dar un paso atrás, pero realmente ayuda a la hora de crear un có
 Es muy fácil colarse y equivocarse al escribir el nombre de una variable y teclear dos letras al revés, o acostumbrarse a crear variables sin indicar que son var, haciendo difícil entender de dónde ha salido y en qué momento hemos necesitado o declarado dicha variable.
 Use strict nos obligará a utilizar "las buenas prácticas" a la hora de programar, haciendo que nuestro código quede más claro y ordenado.
 
+---
+## Buenas prácticas de programación
+
+En el punto anterior hemos mencionado el término 'Buenas prácticas de programación' y quizás sea la primera vez que lo escuchas.
+Las buenas prácticas de programación son un conjunto de reglas (pueden ser opcionales u obligatorias) que se adoptan a la hora de programar con el fin de mejorar la calidad del software, facilitar el proceso de desarrollo para el programador, facilitar la legibilidad y mantebilidad del código fuente, evitar ciertos errores comunes, etc.
+Las reglas más importantes son:
+- El largo máximo de cada línea (líneas eternas resultan en líneas ilegibles).
+- Convenciones de nombres para las variables.
+- Tabulaciones en el código dentro de las estructuras de control y funciones.
+- Utiliza sólo una instrucción por línea.
+- Utiliza un espacio después de las comas.
+- Y otros.
+
+Las buenas prácticas no solo competen al lenguaje de programación JavaScript, sino a todos ellos puesto que sus beneficios son más que válidos.
+
+[Aquí tenemos un pdf que explica en profundidad y con ejemplos las buenas prácticas de programación en C.](http://zeus.inf.ucv.cl/~ifigueroa/lib/exe/fetch.php/teaching/buenaspracticasc.pdf)
+
 ----
 ## Estructuras de control
 
@@ -560,7 +577,7 @@ Por ejemplo, en css tenemos el método **text-decoration: underline** para defin
 Para ello, tendremos que aprender las diferentes formas de hacer referencia a uno o varios elementos, y los métodos que existen para modificar su contenido, modificar sus propiedades, eliminarlo, crearlo, añadirle hijos, etc.
 **Para poder utilizar el DOM correctamente tendremos que tener ciertos conocimientos mínimos de HTML (y de CSS si queremos modificar el estilo).**
 
-Aquí veremos unos pocos ejemplos y una tabla con algunos de los métodos disponibles.
+Aquí veremos unos pocos ejemplos y una tabla con algunos de los métodos disponibles.  
 Archivo **index.html**
 ```html
 <!DOCTYPE html>
@@ -625,6 +642,9 @@ var btn = document.createElement('BUTTON');
 btn.innerText = '¡Apriétame!'; // Le añadimos texto al botón
 btn.addEventListener('click', () => { alert('¡Hola Mundo!') }); // Evento onclick
 document.body.appendChild(btn);
+
+// Escribir texto directamente en el documento (al final del body)
+document.write('¡Fin del ejemplo!');
 ```
 
 Este ejemplo ha sido un ejemplo muuuy breve y simple, donde podemos observar cómo buscar un elemento por su ID, modificar su contenido y también cómo recoger en un array todos los elementos de una clase.
@@ -706,7 +726,7 @@ Puedes configurarlo línea a línea a través de código JavaScript. Algunos eje
 | appendChild(element)         | Añadir un elemento al elemento seleccionado.                         | document.body.appendChild(btn)               |
 | createTextNode('texto')      | Crear un nodo de texto que después podremos añadir a algún elemento. | var texto = document.createTextNode('Hola!') |
 
-Otros dos métodos importantes pero que requieren una explicación y ejemplos más extensos:
+Otros dos métodos de creación de elementosimportantes pero que requieren una explicación y ejemplos más extensos:
 - [createDocumentFragment()](https://developer.mozilla.org/es/docs/Web/API/Document/createDocumentFragment)
 - [createElementNS() con su explicación](https://developer.mozilla.org/es/docs/Web/API/Document/createElementNS)
 
