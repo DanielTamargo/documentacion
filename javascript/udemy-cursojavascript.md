@@ -561,16 +561,31 @@ Para ello, tendremos que aprender las diferentes formas de hacer referencia a un
 **Para poder utilizar el DOM correctamente tendremos que tener ciertos conocimientos mínimos de HTML (y de CSS si queremos modificar el estilo).**
 
 Aquí veremos unos pocos ejemplos y una tabla con algunos de los métodos disponibles.
-Body del documento HTML:
+Archivo **index.html**
 ```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplos DOM JavaScript</title>
+    <script src="ejemplos.js" defer></script>
+</head>
 <body>
     <div id="div1"></div>
     <p class="parrafo1"></p>
     <p class="parrafo1"></p>
+    <div id="padre">
+        <p>Primer Hijo</p>
+        <p>Segundo Hijo</p>
+        <a>Último Hijo</a>
+    </div>
 </body>
+</html>
 ```
 
-Código javascript
+Archivo **ejemplos.js**
 ```javascript
 // Buscar un elemento por su id
 var div1 = document.getElementById('div1');
@@ -590,11 +605,31 @@ var parrafo2 = parrafos1[1];
 parrafo2.style.color = "rgb(10, 50, 200)"; // Color con código rgb
 parrafo2.style.fontWeight = "bolder"; // Negrita
 parrafo2.innerHTML = "Y yo soy el segundo!";
+
+// Para obtener los elementos hijos de un elemento
+var elementoPadre = document.getElementById('padre');
+var primerHijo = elementoPadre.firstElementChild;
+console.log(primerHijo); // <p>Primer Hijo</p>
+
+// Obtener todos los hijos de un elemento
+var hijos = document.getElementById('padre').children;
+var segundoHijo = hijos[1];
+console.log(segundoHijo); // <p>Segundo Hijo</p>
+
+// Obtener el hermano de un elemento
+var tercerHijo = segundoHijo.nextElementSibling;
+console.log(tercerHijo); // <a>Último hijo</a>
+
+// Crear elemento y añadirlo al final del body
+var btn = document.createElement('BUTTON');
+btn.innerText = '¡Apriétame!'; // Le añadimos texto al botón
+btn.addEventListener('click', () => { alert('¡Hola Mundo!') }); // Evento onclick
+document.body.appendChild(btn);
 ```
 
 Este ejemplo ha sido un ejemplo muuuy breve y simple, donde podemos observar cómo buscar un elemento por su ID, modificar su contenido y también cómo recoger en un array todos los elementos de una clase.
 
-Lista de métodos de uso habitual:
+A continuación vamos a ver muchos de los métodos de uso habitual y que aunque no haya que memorizar, estaría bien conocer de su existencia.
 
 ### DOM: Buscar elementos
 | Método                          | Descripción                                                                                                                                              |
@@ -716,13 +751,18 @@ console.log(document.documentElement.parentElement === document);  // false
 | nextElementSibling     | Devuelve como objeto el siguiente hermano del elemento especificado. A diferencia de nextSibling, omitirá los nodos #text y los comentarios. Devuelve null si no existe.    |
 | previousElementSibling | Devuelve como objeto el anterior hermano del elemento especificado. A diferencia de previousSibling, omitirá los nodos #text y los comentarios. Devuelve null si no existe. |
   
-
 Nota: Se condiera que dos nodos o elementos son hermanos cuando tienen el mismo padre, es decir, están al mismo nivel.
 
-
-### DOM: Otros métodos
+### DOM: Otros métodos útiles e interesantes
 
 - [closest()](https://developer.mozilla.org/es/docs/Web/API/Element/closest)
 
+### DOM: Más documentación
 
+Enlaces para poder consultar todo lo que quieras sobre DOM, desde su introducción y explicación hasta una lista de sus métodos.
+
+- [Introducción y explicación (utilizar el menú lateral izquierdo)](https://www.w3schools.com/js/js_htmldom.asp)
+- [Todos los métodos (utilizar el menú lateral izquierdo)](https://www.w3schools.com/jsref/dom_obj_all.asp)
+
+Está en inglés, si quieres consultar un método en concreto y no comprendes bien del todo su descripción o utilidad, puedes buscar dicho método en concreto en internet y podrás acceder a la documentación en castellano, generalmente en la url https://developer.mozilla.org/es/docs/Web/Reference (donde también puedes acceder y mirar su documentación directamente).
 
